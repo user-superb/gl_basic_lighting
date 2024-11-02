@@ -35,6 +35,8 @@ public:
     void update(Shader shaderIn, const char* uniformName);
     /* Checks input and update de camera position and orientation vector */
     void input(GLFWwindow *windowIn);
+
+    glm::mat4 getView();
 };
 
 #endif

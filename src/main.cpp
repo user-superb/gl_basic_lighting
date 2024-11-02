@@ -35,7 +35,7 @@ int main(int argc, char const *argv[])
     /* load shader */
     /***************/
     Shader defaultShader("resources/shaders/defaultVertex.vert", "resources/shaders/defaultFragment.frag");
-    Shader lightShader("resources/shaders/defaultVertex.vert", "resources/shaders/lightFragment.frag");
+    Shader lightShader("resources/shaders/lightVertex.vert", "resources/shaders/lightFragment.frag");
 
     /**********/
     /* Camera */
@@ -72,6 +72,7 @@ int main(int argc, char const *argv[])
 
         /* draw */
         camera.update(lightShader, "cameraMatrix");
+	lightShader.setMat4("view", camera.getView());
         lightShader.setVec3("objectColor", cube.objectColor);
         lightShader.setVec3("lightColor", lightColor);
         lightShader.setVec3("lightPos", light.pos);

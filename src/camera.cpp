@@ -22,6 +22,10 @@ void Camera::update(Shader shaderIn, const char* uniformName)
     glUniformMatrix4fv(glGetUniformLocation(shaderIn.ID, uniformName), 1, GL_FALSE, glm::value_ptr(proj * view));
 }
 
+glm::mat4 Camera::getView() {
+	return glm::lookAt(position, position + orientation, up);
+}
+
 void Camera::input(GLFWwindow *windowIn) 
 {
     /******************/
