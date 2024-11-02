@@ -37,9 +37,6 @@ int main(int argc, char const *argv[])
     Shader defaultShader("resources/shaders/defaultVertex.vert", "resources/shaders/defaultFragment.frag");
     Shader lightShader("resources/shaders/defaultVertex.vert", "resources/shaders/lightFragment.frag");
 
-    /* load texture: */
-    Texture texture("resources/textures/container.jpg", GL_RGB, GL_TEXTURE_2D, GL_TEXTURE0);
-
     /**********/
     /* Camera */
     /**********/
@@ -61,7 +58,6 @@ int main(int argc, char const *argv[])
     while(!glfwWindowShouldClose(window)) {
         // gl: clear
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        texture.bind();
 
         // camera: update
         camera.input(window);
@@ -88,7 +84,7 @@ int main(int argc, char const *argv[])
 
         // glfw: swap buffers and fetch IO events
         glfwSwapBuffers(window);
-		glfwPollEvents();
+	glfwPollEvents();
     }
 
     glfwTerminate();
